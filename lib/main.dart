@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(height: 100, color: Colors.amber),
             Container(height: 100, color: Colors.green),
