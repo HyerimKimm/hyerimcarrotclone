@@ -24,6 +24,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Image.asset('assets/imgs/abocado.PNG'),
             Container(height: 100, color: Colors.amber),
             Container(height: 100, color: Colors.green),
             Container(height: 100, color: Colors.yellow),
