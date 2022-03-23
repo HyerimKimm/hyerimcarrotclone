@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:hyerimcarrotclone/splash_screen.dart';
 
 void main(){
   runApp(MyApp());
@@ -8,29 +8,29 @@ void main(){
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-    return MaterialApp(
-      home: SplashScreen(),
+    return FutureBuilder(
+      future: Future.delayed(Duration(seconds: 3), ()=>'100'),
+      builder: (context, snapshot) {
+        if(snapshot.hasError){
+          print('error occur while loading.');
+          return Text('Error occur');
+        }else if(snapshot.hasData){
+          return AbocadoApp();
+        }else{
+          return SplashScreen();
+        }
+      }
     );
   }
 }
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class AbocadoApp extends StatelessWidget {
+  const AbocadoApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset('assets/imgs/abocado.PNG'),
-            Container(height: 100, color: Colors.amber),
-            Container(height: 100, color: Colors.green),
-            Container(height: 100, color: Colors.yellow),
-          ],
-        ),
-      ),
+    return Container(
+      color: Colors.amber,
     );
   }
 }
