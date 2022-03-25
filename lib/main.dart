@@ -1,6 +1,10 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
-import 'package:hyerimcarrotclone/splash_screen.dart';
-import 'package:hyerimcarrotclone/logger.dart';
+import 'package:hyerimcarrotclone/router/locations.dart';
+import 'package:hyerimcarrotclone/screens/splash_screen.dart';
+import 'package:hyerimcarrotclone/utils/logger.dart';
+
+final _routerDelegate = BeamerDelegate(locationBuilder: BeamerLocationBuilder(beamLocations: [HomeLocation()]));
 
 void main(){
   logger.d('My First Log by logger!');
@@ -35,8 +39,9 @@ class AbocadoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber,
+    return MaterialApp.router(
+        routeInformationParser: BeamerParser(),
+        routerDelegate: _routerDelegate,
     );
   }
 }
