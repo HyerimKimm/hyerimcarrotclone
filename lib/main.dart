@@ -5,14 +5,11 @@ import 'package:hyerimcarrotclone/screens/auth_screen.dart';
 import 'package:hyerimcarrotclone/screens/splash_screen.dart';
 import 'package:hyerimcarrotclone/utils/logger.dart';
 
-final _routerDelegate = BeamerDelegate(guards:
-  [BeamGuard(
-      pathPatterns: ['/'],
-      check: (context, location){
-        return false;
-      },
-      showPage:BeamPage(child: AuthScreen()))],
-locationBuilder: BeamerLocationBuilder(beamLocations: [HomeLocation()]));
+final _routerDelegate = BeamerDelegate(
+  guards: [BeamGuard(pathBlueprints: ['/'], check: (context, location){
+    return false;
+  },showPage: BeamPage(child: AuthScreen()))],
+    locationBuilder: BeamerLocationBuilder(beamLocations: [HomeLocation()]));
 
 void main(){
   logger.d('My First Log by logger!');
