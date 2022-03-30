@@ -11,3 +11,4 @@ class HomeLocation extends BeamLocation{
   @override
   List get pathBlueprints => ['/'];
 }
+
