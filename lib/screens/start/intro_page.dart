@@ -16,7 +16,7 @@ class IntroPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text('아보카도 마켓',
-              style: TextStyle(color: Colors.green, fontSize: 30, fontWeight: FontWeight.bold,)
+              style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 30, fontWeight: FontWeight.bold,)
           ),
           ExtendedImage.asset('assets/imgs/carrot_intro.png'),
           Text('우리동네 중고 직거래 아보카도마켓',style: TextStyle(

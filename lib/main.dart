@@ -45,8 +45,9 @@ class AbocadoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        routeInformationParser: BeamerParser(),
-        routerDelegate: _routerDelegate,
+      theme: ThemeData(primarySwatch: Colors.green),
+      routeInformationParser: BeamerParser(),
+      routerDelegate: _routerDelegate,
     );
   }
 }
