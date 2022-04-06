@@ -48,7 +48,10 @@ class AbocadoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
         fontFamily: 'Dohyeon',
-        textTheme: TextTheme(headline3: TextStyle(fontFamily: 'Dohyeon'))
+        textTheme: TextTheme(
+            headline3: TextStyle(fontFamily: 'Dohyeon'),
+            button: TextStyle(color: Colors.white)
+        )
       ),
       routeInformationParser: BeamerParser(),
       routerDelegate: _routerDelegate,
