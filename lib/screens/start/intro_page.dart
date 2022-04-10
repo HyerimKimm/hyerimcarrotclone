@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import '../../utils/logger.dart';
 
 class IntroPage extends StatelessWidget {
-  const IntroPage({Key? key}) : super(key: key);
-
-  void onButtonClick(){
-    logger.d('on');
-  }
+  PageController controller;
+  IntroPage(this.controller, {Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +21,7 @@ class IntroPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text('아보카도 마켓',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline3!.
-                    copyWith(color: Theme.of(context).colorScheme.primary)
+                    style: Theme.of(context).textTheme.headline3!.copyWith(color: Theme.of(context).colorScheme.primary)
                 ),
                 SizedBox(
                   width: imgSize,
@@ -48,13 +42,13 @@ class IntroPage extends StatelessWidget {
                     fontSize: 22, fontWeight: FontWeight.bold
                 )),
                 Text('''아보카도 마켓은 동네 직거래 마켓이예요.
-내 동네를 설정하고 시작해보세요.''',style: TextStyle(
-                    fontSize: 16
-                )),
+내 동네를 설정하고 시작해보세요.''',style: TextStyle( fontSize: 16 )),
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [ TextButton(
-                      onPressed: onButtonClick,
+                      onPressed: (){
+                        controller.animateToPage(1, duration: Duration(milliseconds: 500), curve: Curves.ease);
+                      },
                       child: Text('내 동네 설정하고 시작하기',
                           style: Theme.of(context).textTheme.button),
                       style: TextButton.styleFrom(
