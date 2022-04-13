@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AddressPage extends StatelessWidget {
@@ -25,7 +26,28 @@ class AddressPage extends StatelessWidget {
                 ),
                 prefixIconConstraints:
                   BoxConstraints(minWidth: 24, minHeight: 24),),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextButton.icon(
+                  onPressed: (){ },
+                  icon: Icon(
+                    CupertinoIcons.compass,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  label: Text('현재 위치 찾기',
+                      style: Theme.of(context).textTheme.button,
+                  ),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
