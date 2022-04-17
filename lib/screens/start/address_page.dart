@@ -1,5 +1,7 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hyerimcarrotclone/utils/logger.dart';
 
 class AddressPage extends StatelessWidget {
   const AddressPage({Key? key}) : super(key: key);
@@ -27,27 +29,35 @@ class AddressPage extends StatelessWidget {
                 prefixIconConstraints:
                   BoxConstraints(minWidth: 24, minHeight: 24),),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TextButton.icon(
-                  onPressed: (){ },
-                  icon: Icon(
-                    CupertinoIcons.compass,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                  label: Text('현재 위치 찾기',
-                      style: Theme.of(context).textTheme.button,
-                  ),
-                  style: TextButton.styleFrom(
-                    backgroundColor: Theme.of(context).primaryColor,),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextButton.icon(
+                onPressed: (){ },
+                icon: Icon(
+                  CupertinoIcons.compass,
+                   color: Colors.white,
+                  size: 20,
                 ),
-              ],
-            ),
+                label: Text('현재 위치 찾기',
+                  style: Theme.of(context).textTheme.button,
+                ),
+                style: TextButton.styleFrom(
+                  backgroundColor: Theme.of(context).primaryColor,),
+              ),
+            ],
           ),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index){
+                logger.d('index: $index');
+                return ListTile(
+                  trailing: ExtendedImage.asset('assets/imgs/abocado.PNG'),
+                  title: Text('address $index'), 
+                  subtitle: Text('address $index'),);
+                },
+              itemCount: 30,),
+          )
         ],
       ),
     );
